@@ -68,11 +68,11 @@ public class HeirsFilter {
         }
         
         if(mother != null) {
-            if(!m_heirs.isThereSomeoneExcept(mother)) {
+            if(m_heirs.isThereSomeoneExcept(mother)) {
                 mother.setQuota(new Quota(1, 1));
             }
             if(m_heirs.branchExists()) {
-                mother.setQuota(new Quota(1, 6));   
+                mother.setQuota(new Quota(1, 6));
             }
             else {
                 mother.setQuota(new Quota(1, 3));
