@@ -24,18 +24,13 @@ public class Heirs {
     }
     
     public void simplifyQuotas() {
-        for(Heir heir : m_heirs)
+        m_heirs.stream().forEach((heir) -> {
             heir.getQuota().simplifiy();
-        
+        }); 
     }
     public boolean isThereSomeoneExcept(Heir heir) {
         
-        for(Heir h : m_heirs) {
-            if(h != heir && h != null){
-                return true;
-            }
-        }
-        return false; 
+        return m_heirs.stream().anyMatch((h) -> (h != heir && h != null)); 
     }
     public Heir getHeir(int index) {
         return m_heirs.get(index);
