@@ -26,7 +26,8 @@ public class Heirs {
     public void simplifyQuotas() {
         m_heirs.stream().forEach((heir) -> {
             heir.getQuota().simplifiy();
-        }); 
+        });
+        
     }
     public boolean isThereSomeoneExcept(Heir heir) {
         
@@ -56,19 +57,10 @@ public class Heirs {
         Heir.resetRemainingQuota();
     }
     public boolean maleBranchExists() {
-        for(Heir heir : m_heirs) {
-            if(heir.getDegree().equalsIgnoreCase("son"))
-                return true;
-        }
-        return false;
+        return m_heirs.stream().anyMatch((heir) -> (heir.getDegree().equalsIgnoreCase("son")));
     }
     public boolean branchExists() {
-        for(Heir heir : m_heirs) {
-            if(heir.getDegree().equalsIgnoreCase("son") || heir.getDegree().equalsIgnoreCase("daughter")) {
-                return true;
-            }
-        }
-        return false;
+        return m_heirs.stream().anyMatch((heir) -> (heir.getDegree().equalsIgnoreCase("son") || heir.getDegree().equalsIgnoreCase("daughter")));
     }
     
     public void clear() {

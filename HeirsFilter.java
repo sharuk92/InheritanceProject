@@ -38,8 +38,7 @@ public class HeirsFilter {
                     Quota r = new Quota(Heir.getRemainingQuota().getP(), Heir.getRemainingQuota().getQ());
                     son.setQuota(QuotasOperations.multiplication(r, QuotasOperations.multiplication(new Quota(onth, 1),new Quota(1, onth+halfs))));
                     daugther.setQuota(QuotasOperations.multiplication(r, new Quota(daugther.getQuantity(), onth+halfs)));
-                    
-                    
+                     
                     
                 }
             }
@@ -56,7 +55,7 @@ public class HeirsFilter {
                 if(m_heirs.maleBranchExists()) {
                     father.setQuota(new Quota(1, 6));
                     
-                    System.out.println(Heir.m_remaining_quota);
+                  
                 }
                 else {
                     
@@ -68,7 +67,7 @@ public class HeirsFilter {
         }
         
         if(mother != null) {
-            if(m_heirs.isThereSomeoneExcept(mother)) {
+            if(!m_heirs.isThereSomeoneExcept(mother)) {
                 mother.setQuota(new Quota(1, 1));
             }
             if(m_heirs.branchExists()) {
