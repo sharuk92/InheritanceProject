@@ -7,10 +7,8 @@ package inheritanceproject;
 public class Heir {
     
     protected String m_degree;
-   // protected double m_quota;
     protected Quota m_quota;
     protected int m_quantity;
-    
     protected static Quota m_remaining_quota = new Quota(1, 1);
     
     public Heir(String degree, int quantity) {

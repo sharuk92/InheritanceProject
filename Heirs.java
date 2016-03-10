@@ -8,7 +8,7 @@ import java.util.Map;
  *
  * @author yassine
  */
-public class Heirs {
+public final class Heirs {
     
     ArrayList<Heir> m_heirs;
     Map<String, Boolean> m_heirs_inherits_rest;
