@@ -12,15 +12,33 @@ public class Heirs {
     
     ArrayList<Heir> m_heirs;
     Map<String, Boolean> m_heirs_inherits_rest;
+    Map<String, Boolean> m_heirs_inherits_by_part;
     
     public Heirs() {
+        init();
+
+    }
+    
+    public void init() {
         m_heirs = new ArrayList<>();
         m_heirs_inherits_rest = new HashMap<>();
         m_heirs_inherits_rest.put("father", false);
         m_heirs_inherits_rest.put("mother", false);
         m_heirs_inherits_rest.put("son", false);
         m_heirs_inherits_rest.put("daugther", false);
-
+        
+        m_heirs_inherits_by_part = new HashMap<>();
+        
+    }
+    
+    public boolean inheritsTheRest(Heir heir) {
+        String degree = heir.getDegree();
+        return m_heirs_inherits_rest.get(degree);
+    }
+    public void setInheritsTheRest(Heir heir) {
+        String degree = heir.getDegree();
+        
+        m_heirs_inherits_rest.put(degree, true);
     }
     
     public void simplifyQuotas() {
