@@ -5,6 +5,10 @@
  */
 package inheritanceproject;
 
+
+import inheritanceproject.heirs.Heirs;
+import inheritanceproject.heirs.Heir;
+import inheritanceproject.heirs.HeirsFilter;
 import javax.swing.JComboBox;
 
 /**
