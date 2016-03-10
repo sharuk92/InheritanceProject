@@ -18,11 +18,10 @@ public class HeirsFilter {
         filterForPartners();
         filterForParents();
         filterForBranches();
-        //ResultGenerator.showResult(m_heirs);
-        
         m_heirs.simplifyQuotas();
     }
-
+    
+ 
     private void filterForBranches() {
         Heir son = m_heirs.getHeir("son");
         Heir daugther = m_heirs.getHeir("daugther");
@@ -33,19 +32,15 @@ public class HeirsFilter {
             else {
                 if(daugther != null) {
                     int onth = son.getQuantity() * 2;
-                    int halfs= daugther.getQuantity();
-                    
+                    int halfs= daugther.getQuantity();  
                     Quota r = new Quota(Heir.getRemainingQuota().getP(), Heir.getRemainingQuota().getQ());
                     son.setQuota(QuotasOperations.multiplication(r, QuotasOperations.multiplication(new Quota(onth, 1),new Quota(1, onth+halfs))));
                     daugther.setQuota(QuotasOperations.multiplication(r, new Quota(daugther.getQuantity(), onth+halfs)));
-                     
-                    
                 }
             }
         }
     }
     
-   
     private void filterForParents() {
         Heir father = m_heirs.getHeir("father");
         Heir mother = m_heirs.getHeir("mother");
@@ -54,8 +49,6 @@ public class HeirsFilter {
             if(m_heirs.isThereSomeoneExcept(father)) {
                 if(m_heirs.maleBranchExists()) {
                     father.setQuota(new Quota(1, 6));
-                    
-                  
                 }
                 else {
                     
@@ -105,10 +98,6 @@ public class HeirsFilter {
                 wife.setQuota(new Quota(1, 4));
             }
         }
-        else {
-            
-        }
-    
     }
     
 
