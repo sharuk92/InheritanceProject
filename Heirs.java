@@ -36,9 +36,7 @@ public class Heirs {
         return m_heirs_inherits_rest.get(degree);
     }
     public void setInheritsTheRest(Heir heir) {
-        String degree = heir.getDegree();
-        
-        m_heirs_inherits_rest.put(degree, true);
+        m_heirs_inherits_rest.put(heir.getDegree(), true);
     }
     
     public void simplifyQuotas() {
@@ -46,6 +44,14 @@ public class Heirs {
             heir.getQuota().simplifiy();
         });
         
+    }
+    
+    public boolean isThereBranches() {
+        
+        String son = "son";
+        String daugther = "daugther";
+        
+        return m_heirs.stream().anyMatch((heir) -> (heir.getDegree().equals(son) || heir.getDegree().equals(daugther)));
     }
     public boolean isThereSomeoneExcept(Heir heir) {
         
