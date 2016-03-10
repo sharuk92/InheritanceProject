@@ -69,14 +69,10 @@ public class HeirsFilter {
             }
             else {
                 mother.setQuota(new Quota(1, 3));
-            }
-            
-            
+            }   
         }
         
     }
-    
-    
     private void filterForPartners() {
         Heir husband = m_heirs.getHeir("husband");
         Heir wife = m_heirs.getHeir("wife");
@@ -92,8 +88,6 @@ public class HeirsFilter {
         else if (wife != null) {
             if(m_heirs.branchExists()) {
                 wife.setQuota(new Quota(1, 8));
-                
-                
             }
             else {
                 wife.setQuota(new Quota(1, 4));
