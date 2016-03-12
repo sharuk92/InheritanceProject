@@ -15,7 +15,7 @@ public class HeirsFilter {
     public HeirsFilter(Heirs heirs) {
         m_heirs = heirs;
     }
-
+    
     public void start() {
         filterForPartners();
         filterForParents();

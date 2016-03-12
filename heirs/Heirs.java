@@ -11,8 +11,11 @@ import java.util.Map;
 public final class Heirs {
     
     ArrayList<Heir> m_heirs;
+    // Collection of people that may inherit the rest.
     Map<String, Boolean> m_heirs_inherits_rest;
-    Map<String, Boolean> m_heirs_inherits_by_part;
+    
+    // Collection of people that may not inherit.
+    Map<String, Boolean> m_heirs_no_inheritance;
     
     public Heirs() {
         init();
@@ -22,15 +25,20 @@ public final class Heirs {
     public void init() {
         m_heirs = new ArrayList<>();
         m_heirs_inherits_rest = new HashMap<>();
+        m_heirs_no_inheritance= new HashMap<>();
+        
+        
         m_heirs_inherits_rest.put("father", false);
         m_heirs_inherits_rest.put("mother", false);
         m_heirs_inherits_rest.put("son", false);
         m_heirs_inherits_rest.put("daugther", false);
         
-        m_heirs_inherits_by_part = new HashMap<>();
+        m_heirs_no_inheritance.put("grandfather", false);
+        m_heirs_no_inheritance.put("grandmother", false);
+        m_heirs_no_inheritance.put("grandson", false);
+
         
     }
-    
     public boolean inheritsTheRest(Heir heir) {
         String degree = heir.getDegree();
         return m_heirs_inherits_rest.get(degree);
@@ -38,14 +46,12 @@ public final class Heirs {
     public void setInheritsTheRest(Heir heir) {
         m_heirs_inherits_rest.put(heir.getDegree(), true);
     }
-    
     public void simplifyQuotas() {
         m_heirs.stream().forEach((heir) -> {
             heir.getQuota().simplifiy();
         });
         
     }
-    
     public boolean isThereBranches() {
         
         String son = "son";
