@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inheritanceproject.quotas;
-
 /**
  *
  * @author yassine
@@ -38,7 +32,6 @@ public class Quota {
         this.m_p = p;
         this.m_q = common_q;
     }
-    
     private int findPGCD(int p, int q) {
         if(p % q == 0) {
             return q;
@@ -63,7 +56,6 @@ public class Quota {
             str = String.valueOf(0);
         else
             str = String.valueOf(m_p) + "/" + String.valueOf(m_q);
-        
         
         return str;
     }
