@@ -1,4 +1,3 @@
-
 package inheritanceproject;
 
 import inheritanceproject.heirs.Heirs;
